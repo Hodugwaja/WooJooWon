@@ -5,6 +5,7 @@ var date = 253;
 
 
 client.on('message', (message) => {
+    var args = message.content.split(' ');
     if(message.author.bot) {
         return NaN
     }
@@ -15,7 +16,17 @@ client.on('message', (message) => {
         message.reply(`우주원의 출소일자는 ${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일 입니다`);
         return NaN;
     }
-    if (!message.content.replace(/[\{\}\[\]\/?.,;:\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi, '').endsWith('냥')) {
+    if(args[0] === "우주원" && args[1] === "형량" && args[2] === "추가"&& (message.author.id === '533120411274182666' || message.author.id === '747714416128163910')){
+        date = Number(date) + Number(args[3]);
+        message.channel.send(`> 우주원의 형량이 추가가 되었습니다\n> 우주원의 출소까지 ${date}일 남았습니다`)
+        return NaN;
+    }
+    if(args[0] === "우주원" && args[1] === "형량" && args[2] === "감형"&&message.author.id === '533120411274182666'){
+        date = Number(date) - Number(args[3]);
+        message.channel.send(`> 우주원의 형량이 감형이 되었습니다\n> 우주원의 출소까지 ${date}일 남았습니다`)
+        return NaN;
+    }
+    if (!message.content.replace(/[\{\}\[\]\/?.,;:\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi, '').endsWith('냥') && date >= 0) {
         if(message.author.id === "617184459250466827"){
             date++;
             const embed = new discord.MessageEmbed()
