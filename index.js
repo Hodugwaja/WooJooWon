@@ -74,7 +74,7 @@ const activities_list = [
     "made by hodugwaja", 
     "우주원 감시",
     `우주원 출소 ${date}일 남음`,
-    `**우주원 Readme** 를 통해 명령어 확인`
+    `"우주원 Readme" 를 통해 명령어 확인`
 ];
 
 
