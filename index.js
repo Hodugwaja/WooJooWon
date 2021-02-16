@@ -1,7 +1,7 @@
 const discord = require('discord.js');
 const client = new discord.Client();
 const {prefix, token} = require('./config.json')
-var date = 259;
+var date = 261;
 var Joowon = "617184459250466827"
 
 client.on('message', (message) => {
@@ -38,7 +38,7 @@ client.on('message', (message) => {
         var today = new Date();
         today.setDate(today.getDate() + date)
         today.toLocaleString()
-        message.reply(`> 우주원의 출소일자는 ${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일 입니다\n >남은 날짜 : ${date}일이 남았습니다`);
+        message.channel.send(`> 우주원의 출소일자는 ${today.getFullYear()}년 ${today.getMonth()}월 ${today.getDate()}일 입니다\n >남은 날짜 : ${date}일이 남았습니다`);
         return NaN;
     }
     if(args[0] === "우주원" && args[1] === "형량" && args[2] === "추가"&& (message.author.id === '533120411274182666' || message.author.id === '747714416128163910')){
